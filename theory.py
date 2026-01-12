@@ -1,5 +1,6 @@
 # (C) 2025-2026 Annie Tran
 # Structural Parity Model of Cancer
+# Output by Claude
 # github.com/nntrn/cancer
 
 import numpy as np
