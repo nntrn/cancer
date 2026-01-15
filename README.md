@@ -12,9 +12,26 @@ The model treats cancer as a persistent failure of growth to resolve into stable
 
 Cancer is modeled as a generative state that repeatedly attempts but fails to achieve structural closure, resulting in persistent growth.
 
-    * Growth attempts resolution (closure),
-    * But each attempt reproduces asymmetry,
-    * Leading to expansion without completion.
+    Key characteristics:
+    
+    * state variable: parity
+      (odd vs even)
+    * transition rule: (2*self) + self → 3x
+      (which amplifies the current parity)
+    * failure as non-closure 
+      (remaining odd / unstable)
+    * health as eventual closure: 
+      closure(x) = first k such that parity(3^k * x) = 0
+    
+Structurally, this is:  
+a global iterative process with long-term attractors where pathology = failure to reach a stable basin.
+
+Cancer, in this framing, is:  
+a system that cannot reach closure under its own generative rules
+
+Why cancer is hard: 
+it's not a single mutation or local damage, 
+cancer is a runaway parity amplification problem
 
 The key primitives are **closure** (degree of tissue organization), **asymmetry** (parity of state: symmetric vs. asymmetric), and **constraint** (maintenance of cell identity and boundaries), which together define whether a tissue is stable (benign) or unstable (malignant).
 
