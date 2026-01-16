@@ -8,11 +8,9 @@ By [Annie Tran]
 
 This project introduces a symbolic, structural model of cancer that explains cancer behavior using a small set of system-level primitives rather than molecular detail.
 
-The model treats cancer as a persistent failure of growth to resolve into stable structure, formalized using parity logic and three core variables: Asymmetry (A), Closure (C), and Constraint (K).
-
 Cancer is modeled as a generative state that repeatedly attempts but fails to achieve structural closure, resulting in persistent growth.
 
-    Key characteristics:
+Key characteristics:
     
     * state variable: parity
       (odd vs even)
@@ -29,11 +27,11 @@ a global iterative process with long-term attractors where pathology = failure t
 Cancer, in this framing, is:  
 a system that cannot reach closure under its own generative rules
 
-Why cancer is hard: 
+Why cancer is hard:  
 it's not a single mutation or local damage, 
 cancer is a runaway parity amplification problem
 
-The key primitives are **closure** (degree of tissue organization), **asymmetry** (parity of state: symmetric vs. asymmetric), and **constraint** (maintenance of cell identity and boundaries), which together define whether a tissue is stable (benign) or unstable (malignant).
+Key primitives are **closure** (degree of tissue organization), **asymmetry** (parity of state: symmetric vs. asymmetric), and **constraint** (maintenance of cell identity and boundaries), which together define whether a tissue is stable (benign) or unstable (malignant).
 
 ## Overview
 
@@ -45,7 +43,7 @@ Instead of asking which genes are broken, ask:
     * Is the system capable of reaching closure?
     * Are constraints sufficient to preserve identity once closure is reached?
 
-The insight came from reading about tunicates and then asking ChatGPT about an unusually odd-numbered chemical bond (C39H43N3O11S) known for being "anti-cancer".
+The insight came from reading about tunicates and then sharing with ChatGPT a theory about an unusually odd-numbered chemical bond (C39H43N3O11S) known for being "anti-cancer".
 
 ## Core Idea
 
@@ -126,7 +124,6 @@ Constraint measures structural containment: the system's ability to resist defor
     STRONG K: system has high internal regulation and structural order
     WEAK K: system lacks order 
 
-
 ### Interpretation
 
 Label | A | C | K | C_num | Example | Note
@@ -138,6 +135,14 @@ Label | A | C | K | C_num | Example | Note
 **Dormant Cancer** | 0 | 0.9 | Low | 3 | Residual cell | Risk of recurrence
 **Metastatic Cancer** | 1 | 0.2 | Very Low | 15 | Metastatic lesion | Urgent intervention required
 **Remission** | 0 | 0.95 | Med | 1 | Post-treatment | Monitor for recurrence
+
+    If:   
+      d(Healthy)/dt = -Drug_toxicity * Healthy
+      d(Cancer)/dt = (Growth_rate - Drug_efficacy) * Cancer
+    
+    You want: 
+      Drug_efficacy > Growth_rate
+      Drug_toxicity << Drug_efficacy (for healthy)
 
 ## Usage
 
